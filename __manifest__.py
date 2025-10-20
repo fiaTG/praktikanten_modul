@@ -26,7 +26,7 @@ Enthält Funktionen für Aufgabenmanagement, Zeiterfassung, Wochenberichte und P
         # Data
         # 'data/demo_data.xml',
         # Views
-        # 'views/intern_view.xml',
+        'views/intern_intern_views.xml',
     ],
     'application': True,
     'installable': True,
