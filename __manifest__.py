@@ -21,6 +21,7 @@ Enthält Funktionen für Aufgabenmanagement, Zeiterfassung, Wochenberichte und P
     ],
     'data': [
         # Security
+        'security/intern_security.xml',
         'security/ir.model.access.csv',
         # Data
         # 'data/demo_data.xml',

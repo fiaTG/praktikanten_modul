@@ -1,1 +1,1 @@
-# Hier später alle Python-Modelle importieren
+from . import intern_intern
