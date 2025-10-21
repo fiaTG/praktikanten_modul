@@ -11,3 +11,7 @@ class InternIntern(models.Model):
     end_date = fields.Date(string='Enddatum')
     company_id = fields.Many2one('res.company', string='Unternehmen', required=True, default=lambda self: self.env.company)
     active = fields.Boolean(string='Aktiv', default=True)
+
+    def action_send_invitation(self):
+        # Platzhalter - hier kommt später die Mail/Token-Logik
+        return True
