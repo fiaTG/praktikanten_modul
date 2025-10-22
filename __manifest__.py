@@ -13,6 +13,7 @@ Enthält Funktionen für Aufgabenmanagement, Zeiterfassung, Wochenberichte und P
     'license': 'LGPL-3',
     'depends': [
         'base',
+        'mail',
         'contacts',
         'project',
         'hr_timesheet',
@@ -24,6 +25,7 @@ Enthält Funktionen für Aufgabenmanagement, Zeiterfassung, Wochenberichte und P
         'security/intern_security.xml',
         'security/ir.model.access.csv',
         # Data
+        'data/mail_template_data.xml',
         # 'data/demo_data.xml',
         # Views
         'views/intern_intern_views.xml',

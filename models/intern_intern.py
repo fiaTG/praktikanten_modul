@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, _
+from odoo.exceptions import UserError
 
 class InternIntern(models.Model):
     _name = 'intern.intern'
@@ -13,5 +14,27 @@ class InternIntern(models.Model):
     active = fields.Boolean(string='Aktiv', default=True)
 
     def action_send_invitation(self):
-        # Platzhalter - hier kommt später die Mail/Token-Logik
+        template = self.env.ref(
+            'praktikanten_modul.mail_template_intern_invitation',
+            raise_if_not_found=False,
+        )
+        if not template:
+            raise UserError(
+                _(
+                    'Die Einladungsvorlage wurde nicht gefunden. '
+                    'Bitte stelle sicher, dass das Modul korrekt installiert ist.'
+                )
+            )
+
+        for intern in self:
+            if not intern.email:
+                raise UserError(
+                    _(
+                        'Bitte hinterlege eine E-Mail-Adresse, bevor du eine Einladung sendest.'
+                    )
+                )
+
+            lang = intern.env.context.get('lang') or intern.env.user.lang
+            template.with_context(lang=lang).send_mail(intern.id, force_send=True)
+
         return True

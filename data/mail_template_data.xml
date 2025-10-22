@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="mail_template_intern_invitation" model="mail.template">
+        <field name="name">Praktikant Einladung</field>
+        <field name="model_id" ref="model_intern_intern"/>
+        <field name="subject">${object.company_id.name or ''}: Einladung zum Praktikum</field>
+        <field name="email_from">${(object.company_id.email_formatted or user.email_formatted or '')|safe}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html"><![CDATA[
+            <div>
+                <p>Hallo ${object.name},</p>
+                <p>willkommen bei ${object.company_id.name}! Wir freuen uns darauf, dich als Praktikant:in zu begrüßen.</p>
+                <p>In Kürze erhältst du weitere Informationen zu deinem Einstieg sowie zu den ersten Schritten.</p>
+                <p>Bei Fragen kannst du dich jederzeit an uns wenden.</p>
+                <p>Viele Grüße<br/>
+                ${user.name}</p>
+            </div>
+        ]]></field>
+    </record>
+</odoo>
