@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- HR / Personalabteilung -->
+    <record id="group_intern_hr" model="res.groups">
+        <field name="name">HR / Personalabteilung</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+
+    <!-- Ausbildungsbetreuer:in -->
+    <record id="group_intern_manager" model="res.groups">
+        <field name="name">Ausbildungsbetreuer:in</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('group_intern_hr'))]"/>
+    </record>
+
+    <!-- Praktikant:in (Portalrolle) -->
+    <record id="group_intern_portal" model="res.groups">
+        <field name="name">Praktikant:in</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <!-- <field name="implied_ids" eval="[(4, ref('portal.group_portal'))]"/> -->
+    </record>
+</odoo>
